@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SV-valgomaten</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="valgomat-container">
+        <header>
+            <h1>SV-valgomaten</h1>
+        </header>
+
+        <main>
+            <!-- Start Screen -->
+            <div id="start-screen">
+                <h2>Finn ut hvor du står!</h2>
+                <p>Mange er enige i politikken vår uten å vite det. Velg fire politikkområder du vil teste deg på, så ser vi hvor enige vi er.</p>
+                
+                <div id="topic-selection">
+                    <label><input type="checkbox" name="topic" value="klima"> Klima og natur</label>
+                    <label><input type="checkbox" name="topic" value="skole"> Skole og oppvekst</label>
+                    <label><input type="checkbox" name="topic" value="helse"> Helse og omsorg</label>
+                    <label><input type="checkbox" name="topic" value="okonomi"> Rettferdig økonomi</label>
+                    <label><input type="checkbox" name="topic" value="arbeidsliv"> Et trygt arbeidsliv</label>
+                    <label><input type="checkbox" name="topic" value="bolig"> Bolig for alle</label>
+                </div>
+                <p id="start-error" class="error-message"></p>
+                <button id="start-btn">Start valgomaten</button>
+            </div>
+
+            <!-- Question Screen -->
+            <div id="question-screen" class="hidden">
+                <div class="progress-bar-container">
+                    <div id="progress-bar"></div>
+                </div>
+                <h3 id="question-topic"></h3>
+                <p id="question-text"></p>
+                <div id="answer-options">
+                    <button class="answer-btn" data-value="5">Helt enig</button>
+                    <button class="answer-btn" data-value="4">Delvis enig</button>
+                    <button class="answer-btn" data-value="3">Nøytral</button>
+                    <button class="answer-btn" data-value="2">Delvis uenig</button>
+                    <button class="answer-btn" data-value="1">Helt uenig</button>
+                </div>
+                <p id="answer-error" class="error-message"></p>
+                <button id="next-btn">Neste spørsmål</button>
+            </div>
+
+            <!-- Result Screen -->
+            <div id="result-screen" class="hidden">
+                <h2>Ditt resultat</h2>
+                <div class="result-section agree">
+                    <h3>Du kan stemme SV fordi:</h3>
+                    <ul id="agreement-list"></ul>
+                </div>
+                <div class="result-section disagree">
+                    <h3>Ingen er enige om alt, og her er det SV og du ikke er helt enige:</h3>
+                    <ul id="disagreement-list"></ul>
+                </div>
+                 <button id="restart-btn">Ta testen på nytt</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
