@@ -1,9 +1,9 @@
 :root {
-    --sv-red: #D42533;
+    --sv-red: #EB4040;
     --sv-dark-gray: #333333;
     --sv-light-gray: #f4f4f4;
     --sv-gray-border: #dddddd;
-    --sv-green: #28a745; /* For positive elementer */
+    --sv-green: #539760; /* For positive elementer */
 }
 
 body {
