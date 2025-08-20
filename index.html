@@ -469,12 +469,19 @@
                     .filter(cb => cb.checked)
                     .map(cb => cb.value);
 
+                // KORRIGERT LOGIKK:
+                // Sjekker om antall valgte emner IKKE er 4
                 if (selectedTopics.length !== 4) {
+                    // Hvis det er feil antall, vis feilmeldingen og stopp funksjonen.
                     startError.textContent = "Vennligst velg nøyaktig 4 temaer.";
-                    return;
+                    return; 
                 }
+                
+                // Hvis vi kommer hit, betyr det at brukeren har valgt 4 emner.
+                // Da fjerner vi en eventuell gammel feilmelding.
                 startError.textContent = "";
 
+                // Resten av funksjonen kjører som normalt.
                 questionQueue = selectedTopics.flatMap(topic => questionsData[topic].questions.map(q => ({...q, topicTitle: questionsData[topic].title})));
                 
                 currentQuestionIndex = 0;
@@ -572,4 +579,24 @@
                     agreementList.innerHTML = '<li>I de valgte spørsmålene fant vi ingen store enigheter, men politikk er komplisert!</li>';
                 }
 
-                questionScreen.classList.add('hi
+                questionScreen.classList.add('hidden');
+                resultScreen.classList.remove('hidden');
+            }
+
+            function restartValgomat() {
+                resultScreen.classList.add('hidden');
+                startScreen.classList.remove('hidden');
+                topicCheckboxes.forEach(cb => cb.checked = false);
+            }
+
+
+            // --- Event Listeners ---
+            startBtn.addEventListener('click', startValgomat);
+            nextBtn.addEventListener('click', nextQuestion);
+            answerOptions.addEventListener('click', handleAnswerClick);
+            restartBtn.addEventListener('click', restartValgomat);
+        });
+    </script>
+
+</body>
+</html>
